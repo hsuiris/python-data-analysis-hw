@@ -83,8 +83,8 @@ workflow checkout（把 repo 檔案抓進執行環境）的是課程 repo 自己
 ```mermaid
 flowchart TD
     A["在 fork 寫 homework/*.py 並 push"] --> B["對課程 repo 發 PR"]
-    B --> C{"PR 有改到 homework/ 嗎"}
-    C -- 有 --> D["checkout 課程 repo 的 tests/ 與 grader/"]
+    B --> C["PR 改到 homework/，觸發 grade.yml"]
+    C --> D["checkout 課程 repo 的 tests/ 與 grader/"]
     D --> E["從 PR 只下載 homework/ 的檔案"]
     E --> F["用 Python 3.11 裝好 requirements.txt"]
     F --> G["grader/run_grader.py 跑 pytest 並按題配分"]
